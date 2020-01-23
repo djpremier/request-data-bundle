@@ -11,7 +11,7 @@ use Bilyiv\RequestDataBundle\Tests\Fixtures\TestRequestDataController;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
+use Symfony\Component\HttpKernel\Event\ControllerEvent;
 
 /**
  * @author Vladyslav Bilyi <beliyvladislav@gmail.com>
@@ -54,7 +54,7 @@ class ControllerListenerTest extends TestCase
      */
     public function testOnKernelControllerWithWrongController()
     {
-        $filterControllerEvent = $this->getMockBuilder(FilterControllerEvent::class)
+        $filterControllerEvent = $this->getMockBuilder(ControllerEvent::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -77,7 +77,7 @@ class ControllerListenerTest extends TestCase
      */
     public function testOnKernelControllerWithAbstractController()
     {
-        $filterControllerEvent = $this->getMockBuilder(FilterControllerEvent::class)
+        $filterControllerEvent = $this->getMockBuilder(ControllerEvent::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -100,7 +100,7 @@ class ControllerListenerTest extends TestCase
      */
     public function testOnKernelControllerWithoutInjectedRequestData()
     {
-        $filterControllerEvent = $this->getMockBuilder(FilterControllerEvent::class)
+        $filterControllerEvent = $this->getMockBuilder(ControllerEvent::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -125,7 +125,7 @@ class ControllerListenerTest extends TestCase
     {
         $request = new Request();
 
-        $filterControllerEvent = $this->getMockBuilder(FilterControllerEvent::class)
+        $filterControllerEvent = $this->getMockBuilder(ControllerEvent::class)
             ->disableOriginalConstructor()
             ->getMock();
 
